@@ -8,10 +8,12 @@ export const authMiddleware = (req: Request, _: Response, next: NextFunction) =>
   }
   try {
     const tma = req.headers.authorization?.split(" ")[1];
+    console.log(`tma in mw ${tma}`);
+    
     if (!tma) throw new Error("401:tma_not_found");
 
     const decoded = TMAParse(tma);
-    if (!decoded.user?.id) throw new Error("500:tma_is_broken");
+    if (!decoded) throw new Error("500:tma_is_broken");
 
     (req as CustomRequest).initData = decoded;
     return next();
