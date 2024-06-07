@@ -1,7 +1,7 @@
 import { join } from "path";
 require("dotenv").config({ path: join(__dirname, ".env") });
 
-import express, { Request, Response, json, urlencoded } from "express";
+import express, { Request, Response, json } from "express";
 // import cors from "cors";
 // import { corsOptions } from "./middleware/cors";
 import router from "./router";
