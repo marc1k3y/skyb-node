@@ -12,5 +12,6 @@ router.get("/auth/init", authMiddleware, auth.init);
 // game
 const game = new GameController();
 router.get("/game/sync", authMiddleware, game.sync);
+router.get("/game/close", authMiddleware, game.close);
 
 export default router;

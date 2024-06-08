@@ -30,4 +30,12 @@ export class GameController {
     }
   }
 
+  async close(req: Request, res: Response, next: NextFunction) {
+    try {
+      console.log("game closed");
+    } catch (e) {
+      return next(e);
+    }
+  }
+
 }
