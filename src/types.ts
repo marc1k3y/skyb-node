@@ -8,3 +8,13 @@ export interface CustomRequest extends Request {
 export interface WithIdDoc {
   _id: string
 }
+
+export interface UserIE extends WithIdDoc {
+  score: number
+  floor: number
+  upgrades: {
+    pps: { realtor: number, designer: number },
+    ppc: number
+  },
+  lastPing: number
+}
