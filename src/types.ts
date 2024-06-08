@@ -10,6 +10,7 @@ export interface WithIdDoc {
 }
 
 export interface UserIE extends WithIdDoc {
+  userId: number
   score: number
   floor: number
   upgrades: {

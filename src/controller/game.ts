@@ -22,7 +22,7 @@ export class GameController {
         const currentUpgradePerSecond = current * step * rate;
         currentUserScore += currentUpgradePerSecond * diffTsInSec;
       }
-      const updatedScore = await db.collection("users").updateOne({ userId: user.id }, { $set: { score: currentUserScore } });
+      const updatedScore = await db.collection("users").updateOne({ userId: user.id }, { $set: { score: currentUserScore, lastPing: pingTs } });
       if (!updatedScore.acknowledged || !updatedScore.modifiedCount) throw new Error("500:[game.sync] when updating user score");
       return res.status(200).json({ status: "ok" });
     } catch (e) {
