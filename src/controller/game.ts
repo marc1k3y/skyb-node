@@ -24,7 +24,7 @@ export class GameController {
       }
       const updatedScore = await db.collection("users").updateOne({ userId: user.id }, { $set: { score: currentUserScore } });
       if (!updatedScore.acknowledged || !updatedScore.modifiedCount) throw new Error("500:[game.sync] when updating user score");
-      return res.status(200);
+      return res.status(200).json({ status: "ok" });
     } catch (e) {
       return next(e);
     }

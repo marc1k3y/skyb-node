@@ -28,7 +28,7 @@ export class AuthController {
         if (!createdUser.acknowledged || !createdUser.insertedId) throw new Error("500:[auth.init] when creating new user");
         response = newUser;
       }
-      return res.status(200).json(response);
+      return res.status(200).json({ status: "ok", response });
     } catch (e) {
       return next(e);
     }
